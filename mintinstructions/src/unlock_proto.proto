@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package unlock_proto;
+
+enum ContractInstruction {
+    CREATE_MINT_CONFIG = 0;
+    READ_MINT_CONFIG = 1;
+    DELETE_MINT_CONFIG = 2;
+    CREATE_MINT_DATA = 3;
+    CREATE_MINT_WHITELIST = 4;
+    ADD_MINT_DATA = 5;
+    READ_MINT_DATA = 6;
+    DELETE_MINT_DATA = 7;
+    MINT = 8;
+    ADMIN_CREATE_MAIN_CONFIG = 9;
+    ADMIN_READ_MAIN_CONFIG = 10;
+    ADMIN_UPDATE_MAIN_CONFIG = 11;
+    ADMIN_DELETE_MAIN_CONFIG = 12;
+}
+
+// message to call the contract, with the instuction field being the only required field
+message CallContract {
+    // instructions
+    ContractInstruction contract_instruction = 1;
+    // data
+    optional ContractMainConfig contract_main_config = 2;
+    optional bytes contract_main_config_bytes = 3;
+    optional MintConfig mint_config = 4;
+    optional bytes mint_config_bytes = 5;
+    optional bytes mint_data_bytes = 6;
+    optional uint32 mint_data_offset = 7;
+    optional uint32 mint_data_len = 8;
+}
+
+// Contract main config to store base information
+message ContractMainConfig {
+    repeated string contract_admin_pubkeys = 1; // vector of admins that can change the main config
+    string item1 = 2;
+    string item2 = 3;
+}
+
+// Config to set up a mint
+message MintConfig {
+    string mint_id = 1;
+    string mint_admin_pubkey = 2;
+    bool is_whitelist = 3;
+    bool pause_mint = 4;
+    uint32 whitelist_start_date = 5;
+    uint32 whitelist_end_date = 6;
+    WhitelistType whitelist_type = 7;
+    uint32 start_date = 8;
+    uint32 end_date = 9;
+    uint32 nft_amount = 10;
+    uint64 nft_price_lamports = 11;
+    uint32 counter = 12;
+    uint32 upload_counter = 13;
+    string symbol = 14;
+    repeated NftCreator creators = 15;
+    uint32 seller_fee_basis_points = 16;
+    string update_authority = 17;
+    // ContractInstructions instructions = 0;
+    // repeated NftBase uris_and_names = 3;
+    // Size size = 2;
+}
+
+message NftCreator {
+    string address = 1;
+    bool verified = 2;
+    uint32 share = 3;
+}
+
+enum WhitelistType {
+    NONE = 0;
+    TOKEN_OWNERS = 1;
+    TOKEN_OWNERS_BURN = 2;
+    TOKEN_OWNERS_TAKE = 3;
+}
+
+message NftData {
+    string uri = 1;
+    string name = 2;
+}
+
+
+

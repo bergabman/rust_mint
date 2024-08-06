@@ -1,0 +1,41 @@
+{
+    "mint_id": "HP2BidKxGQHcSWojDTvxTw1ahyMDK9EbQbYxXorXXfL9",
+    "mint_admin_pubkey": "bergXKRwwp1JEZXoSqRdJBYCw8N9rd1LtgnmLqrQePY",
+    "sol_deposit": "bergXKRwwp1JEZXoSqRdJBYCw8N9rd1LtgnmLqrQePY",
+    "nft_deposit": "bergXKRwwp1JEZXoSqRdJBYCw8N9rd1LtgnmLqrQePY",
+    "pause_mint": false,
+    "counter": 0,
+    "upload_counter": 0,
+    "phases": [
+        {
+            "phase_type": 3,
+            "start_timestamp": 1647454839,
+            "end_timestamp": 1647560562,
+            "whitelist_id": "bergXKRwwp1JEZXoSqRdJBYCw8N9rd1LtgnmLqrQePY",
+            "per_token_capacity": 0
+        },
+        {
+            "phase_type": 5,
+            "start_timestamp": 1647560563,
+            "end_timestamp": 1647886929,
+            "whitelist_id": "CH3mzjw3vjPgjHATHuKBCKYNUTA7fgEm9o4Z5EQyZqAu",
+            "per_token_capacity": 0
+        }
+    ],
+    "nft_amount": 0,
+    "nft_price_lamports": 50000,
+    "symbol": "BURNME!",
+    "creators": [
+        {
+            "address": "bergXKRwwp1JEZXoSqRdJBYCw8N9rd1LtgnmLqrQePY",
+            "share": 50
+        },
+        {
+            "address": "HP2BidKxGQHcSWojDTvxTw1ahyMDK9EbQbYxXorXXfL9",
+            "share": 50
+        }
+    ],
+    "seller_fee_basis_points": 500,
+    "update_authority": "bergXKRwwp1JEZXoSqRdJBYCw8N9rd1LtgnmLqrQePY"
+    
+}

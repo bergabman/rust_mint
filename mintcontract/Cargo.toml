@@ -1,0 +1,33 @@
+[package]
+name = "unlock_mintcontract"
+version = "0.1.0"
+edition = "2021"
+authors = ["bergabman"]
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[features]
+no-entrypoint = []
+
+[dependencies]
+solana-program = "1.8.16"
+spl-token = { version="3.3.0", features = [ "no-entrypoint" ] }
+spl-token-metadata = { version="0.0.1", features = [ "no-entrypoint" ] }
+spl-associated-token-account = { version="1.0.3", features = [ "no-entrypoint" ] }
+borsh = "1.5.1"
+# metaplex-token-metadata = { version = "0.0.1", features = [ "no-entrypoint" ] }
+mpl-token-metadata = { version="1.2.5", features = [ "no-entrypoint" ] }
+unlock_mintinstructions = {path = "../mintinstructions/"}
+serde_bytes = "0.11.5"
+thiserror = "1.0.30"
+bytes = "1.1.0"
+prost = "0.9.0"
+arrayref = "0.3.6"
+
+
+[profile.release]
+opt-level = "z"  # Optimize for size.
+lto = true  # link time optimization
+codegen-units = 1 # slow but more efficient, leaves almost no dead code
+panic = 'abort'  # abort on panic
